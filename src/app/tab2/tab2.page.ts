@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { EventoService } from '../services/evento.service';
+import { Evento } from '../models/evento';
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
-  constructor() {}
-
+  public eventos: Evento[] = new Array();
+  
+  constructor(private eventoService: EventoService) { 
+    this.eventos = this.eventoService.getEventos();
+  }
+  
+  // public call(numero: string) { 
+  //   this.callNumber.callNumber('52'+numero, true)
+  //   .then(res => console.log('Launched dialer!', res))
+  //   .catch(err => console.log('Error launching dialer', err));
+  // }
 }
