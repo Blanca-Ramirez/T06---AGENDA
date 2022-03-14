@@ -14,6 +14,7 @@ export class Tab2Page {
     this.eventos = this.eventoService.getEventos();
   }
   
+  
   // public call(numero: string) { 
   //   this.callNumber.callNumber('52'+numero, true)
   //   .then(res => console.log('Launched dialer!', res))

@@ -10,7 +10,8 @@
   <ion-list *ngFor="let evento of eventos; let i=index">
     <ion-card>
         <ion-item>
-          <ion-label>{{evento.fecha}}</ion-label>
+          <ion-label>{{evento.fecha | date: 'EEEE d' | uppercase}} DE {{evento.fecha | date: 'MMM' | uppercase}} DEL {{evento.fecha | date: 'YYYY' | uppercase}}</ion-label>
+
         </ion-item>
         <ion-item>
           <ion-label>{{evento.nombre}}</ion-label>
@@ -24,10 +25,14 @@
         <ion-item>
           <ion-label>{{evento.cel}}</ion-label>
         </ion-item>
-        <ion-item>
-          <ion-button color="success" href="https://api.whatsapp.com/send?phone=52{{evento.cel}}"><ion-icon name="logo-whatsapp"></ion-icon></ion-button>
-          <ion-button color="primary"><ion-icon name="call"></ion-icon></ion-button>
-        </ion-item>
+        <ion-row>
+          <ion-col size-lg="6">
+            <ion-button color="success" expand="block" href="https://api.whatsapp.com/send?phone=52{{evento.cel}}"><ion-icon name="logo-whatsapp"></ion-icon></ion-button>
+          </ion-col>
+          <ion-col size-lg="6">
+            <ion-button color="primary" expand="block"><ion-icon name="call"></ion-icon></ion-button>
+          </ion-col>
+        </ion-row>
     </ion-card>
   </ion-list>
 </ion-content>
